@@ -40,3 +40,7 @@ class Dram(models.Model):
     abv = models.DecimalField(max_digits=4, decimal_places=2)
     nosing = models.TextField(default="Add nosing notes here.")
     tasting = models.TextField(default="Add tasting notes here.")
+
+    def __str__(self):
+
+        return self.dram
