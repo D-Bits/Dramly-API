@@ -1,3 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+# Model for individual whisk(e)y reviews
+class Dram(models.Model):
+
+    pass
