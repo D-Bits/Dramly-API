@@ -19,10 +19,24 @@ class Dram(models.Model):
         ("WW", "World/Misc Whisk(e)y"),
     )
 
+    REGIONS = (
+        ("SP", "Speyside"),
+        ("HL", "Highlands/Other Islands"),
+        ("IS", "Islay"),
+        ("LL", "Lowlands"),
+        ("CT", "Campbelltown"),
+        ("KT", "Kentucky"),
+        ("TN", "Tennessee"),
+        ("OS", "Other U.S. State"),
+        ("N", "N/A"),
+    )
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dram = models.CharField(max_length=250)
     company = models.CharField(max_length=250)
     category = models.CharField(max_length=30, choices=CATEGORIES, default="WW")
+    # What region or state the whisk(e)y is from
+    region = models.CharField(max_length=30, choices=REGIONS, default="N")
     abv = models.DecimalField(max_digits=4, decimal_places=2)
     nosing = models.TextField(default="Add nosing notes here.")
     tasting = models.TextField(default="Add tasting notes here.")
